@@ -78,6 +78,10 @@ class MainActivity : BaseActivity(), MainContract.MainView {
 
         ziZhiAdapter.setOnItemClickListener(object : OnItemClickListener {
             override fun onItemClick(view: View, str: String, position: Int) {
+                if (selectedCount == 6){
+                    toastError("最多6个标签哦！")
+                    return
+                }
                 mMainPresenter.onZiZhiFlowClickListener(str, isSelectedTag(str, view))
             }
         })
